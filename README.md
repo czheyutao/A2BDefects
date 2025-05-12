@@ -1,39 +1,29 @@
 # A2BDefects
 
-#### 介绍
-{**以下是 Gitee 平台说明，您可以替换此简介**
-Gitee 是 OSCHINA 推出的基于 Git 的代码托管平台（同时支持 SVN）。专为开发者提供稳定、高效、安全的云端软件开发协作平台
-无论是个人、团队、或是企业，都能够用 Gitee 实现代码托管、项目管理、协作开发。企业项目请看 [https://gitee.com/enterprises](https://gitee.com/enterprises)}
+# AncientBrickDefect 数据集 [![CC-BY-NC-SA 4.0](https://img.shields.io/badge/许可证-CC%20BY--NC--SA%204.0-lightgrey.svg)](LICENSE)
 
-#### 软件架构
-软件架构说明
+**面向文化遗产保护的古建筑内部结构缺陷分析高分辨率数据集**
 
+![数据集样例](samples.png)
 
-#### 安装教程
+## 项目背景 🌍
+本数据集针对古建筑保护中的机器学习应用空白，聚焦**11-19世纪古建内部承重砖体缺陷分析**，通过与文物保护专家合作，实现隐蔽性结构病害的精准检测：
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+- 多环境条件下的高保真RGB影像
+- 多层级标注（边界框+像素级掩码）
+- 基于结构工程原理的病害严重度评分
 
-#### 使用说明
+## 核心特性 ✨
+| 特性 | 规格 |
+|-------|-------|
+| 覆盖范围 | 8个历史时期的10个保护区 |
+| 图像分辨率 | 平均4096×2160像素 |
+| 标注数量 | 15,678个实例，3类缺陷 |
+| 元数据 | 环境参数与结构风险评分 |
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
-
-
-#### 特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+## 基准测试结果 🏋️
+### 实例分割框架对比
+| 模型 | AP@50 | mIoU | FPS |
+|-------|-------|------|-----|
+| Mask R-CNN (端到端) | 68.2 | 63.1 | 4.2 |
+| 级联Mask R-CNN | **71.5** | **66.8** | 3.1 |
