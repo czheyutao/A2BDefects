@@ -1,10 +1,6 @@
-# A2BDefects
-
-# AncientBrickDefect 数据集 [![CC-BY-NC-SA 4.0](https://img.shields.io/badge/许可证-CC%20BY--NC--SA%204.0-lightgrey.svg)](LICENSE)
+# A2BDefects 数据集 [![CC-BY-NC-SA 4.0](https://img.shields.io/badge/许可证-CC%20BY--NC--SA%204.0-lightgrey.svg)](LICENSE)
 
 **面向文化遗产保护的古建筑内部结构缺陷分析高分辨率数据集**
-
-![数据集样例](samples.png)
 
 ## 项目背景 🌍
 本数据集针对古建筑保护中的机器学习应用空白，聚焦**11-19世纪古建内部承重砖体缺陷分析**，通过与文物保护专家合作，实现隐蔽性结构病害的精准检测：

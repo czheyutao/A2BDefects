@@ -1,36 +1,22 @@
-# A2BDefects
+# AncientBrickDefect Dataset [![CC-BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](LICENSE)
 
-#### Description
-{**When you're done, you can delete the content in this README and update the file with details for others getting started with your repository**}
+**A High-Resolution Dataset for Internal Structural Defect Analysis in Heritage Conservation**
 
-#### Software Architecture
-Software architecture description
+![Dataset Samples](samples.png)
 
-#### Installation
+## Context 🌍
+This dataset addresses the critical gap in machine learning applications for cultural heritage preservation by focusing on **internal load-bearing brick defects** in ancient architectures (11th-19th century). Developed in collaboration with preservation experts, it enables precise analysis of concealed deterioration patterns through:
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+- High-fidelity RGB imagery under diverse environmental conditions
+- Multi-level annotations (bounding boxes + pixel-level masks)
+- Structural severity scoring based on conservation engineering principles
 
-#### Instructions
+## Key Features ✨
+| Feature | Specification |
+|---------|---------------|
+| Coverage | 10 conservation zones across 8 historical periods |
+| Resolution | 4096×2160 pixels (average) |
+| Annotations | 15,678 instances with 3 defect categories |
+| Metadata | Environmental conditions & structural risk scores |
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### Contribution
-
-1.  Fork the repository
-2.  Create Feat_xxx branch
-3.  Commit your code
-4.  Create Pull Request
-
-
-#### Gitee Feature
-
-1.  You can use Readme\_XXX.md to support different languages, such as Readme\_en.md, Readme\_zh.md
-2.  Gitee blog [blog.gitee.com](https://blog.gitee.com)
-3.  Explore open source project [https://gitee.com/explore](https://gitee.com/explore)
-4.  The most valuable open source project [GVP](https://gitee.com/gvp)
-5.  The manual of Gitee [https://gitee.com/help](https://gitee.com/help)
-6.  The most popular members  [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+## Dataset Structure 🗂️
