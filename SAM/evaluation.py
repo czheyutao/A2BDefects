@@ -178,18 +178,4 @@ if __name__ == "__main__":
     # 保存每个的指标
     with open("results2.json", "w") as f:
         json.dump({"results": results}, f)
-
-    # # 对比result1和result2
-    # with open("results1.json", "r") as f:
-    #     results1 = json.load(f)["results"]
-    # with open("results2.json", "r") as f:
-    #     results2 = json.load(f)["results"]
-    # # 对比每个的指标, 挑选出2中iou比1好的图片的id
-    # better_results = []
-    # for i in range(len(results1)):
-    #     if results1[i][1]["mIoU"] < results2[i][1]["mIoU"]:
-    #         better_results.append(results2[i][0])
-    # # 保存对比结果
-    # with open("better_results.json", "w") as f:
-    #     json.dump({"results": better_results}, f)
             

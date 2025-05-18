@@ -1,0 +1,10 @@
+Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+Requirement already satisfied: mmcv in /data/hyt/anaconda3/envs/mmdet/lib/python3.8/site-packages (1.5.0)
+Requirement already satisfied: addict in /data/hyt/anaconda3/envs/mmdet/lib/python3.8/site-packages (from mmcv) (2.4.0)
+Requirement already satisfied: numpy in /data/hyt/anaconda3/envs/mmdet/lib/python3.8/site-packages (from mmcv) (1.24.3)
+Requirement already satisfied: packaging in /data/hyt/anaconda3/envs/mmdet/lib/python3.8/site-packages (from mmcv) (24.2)
+Requirement already satisfied: Pillow in /data/hyt/anaconda3/envs/mmdet/lib/python3.8/site-packages (from mmcv) (10.4.0)
+Requirement already satisfied: pyyaml in /data/hyt/anaconda3/envs/mmdet/lib/python3.8/site-packages (from mmcv) (6.0.2)
+Requirement already satisfied: yapf in /data/hyt/anaconda3/envs/mmdet/lib/python3.8/site-packages (from mmcv) (0.43.0)
+Requirement already satisfied: platformdirs>=3.5.1 in /data/hyt/anaconda3/envs/mmdet/lib/python3.8/site-packages (from yapf->mmcv) (4.3.6)
+Requirement already satisfied: tomli>=2.0.1 in /data/hyt/anaconda3/envs/mmdet/lib/python3.8/site-packages (from yapf->mmcv) (2.2.1)
