@@ -1,9 +1,14 @@
-# A2BDefects Dataset [![CC-BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](LICENSE)
+Here’s the revised **English version** of the README with your requested updates (highlighted in **bold**):
+
+---
+
+# A2BDefects: Dataset and Benchmark for Ancient Architecture Preservation [![CC-BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](LICENSE)
 
 **A High-Resolution Dataset for Internal Structural Defect Analysis in Ancient Brick Architecture**
 
-![Dataset Samples](./samples/fig1.png)
-![Dataset Samples](./samples/fig2.png)
+![Dataset Samples](./samples/fig1.png)  
+![Dataset Samples](./samples/fig2.png)  
+![legend](./samples/legend.png)
 
 🔗 **Dataset URL**: [https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/IGUS04](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/IGUS04)
 
@@ -17,122 +22,115 @@ Existing datasets often emphasize external surface materials with coarse annotat
 
 In collaboration with domain experts, we collected high-resolution images from diverse architectural ensembles under various environmental conditions. The dataset features multi-level annotations, including:
 
-* Object-level bounding boxes
-* Pixel-level segmentation masks
+* Object-level bounding boxes  
+* Pixel-level segmentation masks  
 
-We establish robust baselines using two complementary visual instance segmentation paradigms:
+We establish robust baselines using two complementary visual instance segmentation paradigms:  
 
-1. **One-stage-segmentation**
-2. **Detection-then-segmentation**
+1. **One-stage-segmentation**  
+2. **Detection-then-segmentation**  
 
-Comprehensive multi-granular analysis at both image and instance levels reveals key challenges such as:
+Comprehensive multi-granular analysis at both image and instance levels reveals key challenges such as:  
 
-* Degradation in model performance under high defect density/severity
-* Significant variance with large-scale defects
-* Domain generalization difficulty in unseen architectural settings
+* Degradation in model performance under high defect density/severity  
+* Significant variance with large-scale defects  
+* Domain generalization difficulty in unseen architectural settings  
 
-These insights demonstrate the value of **A2BDefects** in driving forward intelligent approaches for ancient structure preservation.
-
----
-
-## ✨ Key Features
-
-| Feature         | Specification                                    |
-| --------------- | ------------------------------------------------ |
-| Name            | A2BDefects (Ancient-to-Brick Defects)            |
-| Resolution      | 512×512 pixels                                   |
-| Annotations     | 15,678 instances with multi-class labeling       |
-| Defect Types    | water stain (WS), color aberration (CA), surface shedding (SS), and excessive gap (EG)           |
-| Annotation Type | Bounding Boxes + Pixel-level Masks (COCO format) |
-| File Format     | JPEG for images, JSON (COCO) for annotations     |
-| License         | CC BY-NC-SA 4.0                                  |
+These insights demonstrate the value of **A2BDefects** in driving forward intelligent approaches for ancient structure preservation.  
 
 ---
 
-## 📁 Dataset Structure
+## ✨ Key Features  
 
-```
-WZ/
-├── annotations/
-│   ├── instances_train.json     # Training set annotations
-│   ├── instances_val.json       # Validation set annotations
-│   └── instances_test.json      # Test set annotations
-├── train/                       # 512×512 training images
-├── val/                         # Validation images
-└── test/                        # Test images
-```
-
----
-
-## 📊 Annotation Format
-
-Each annotation includes:
-
-```json
-{
-  "id": 2023,
-  "image_id": 105,
-  "category_id": 4,
-  "segmentation": [x1, y1, x2, y2, ...],
-  "bbox": [x, y, width, height],
-  "area": 3450.5,
-  "iscrowd": 0
-}
-```
+| Feature         | Specification                                    |  
+| --------------- | ------------------------------------------------ |  
+| Name            | A2BDefects (Ancient-to-Brick Defects)            |  
+| Resolution      | 512×512 pixels                                   |  
+| Annotations     | **26,162** instances with multi-class labeling   |  
+| Defect Types    | water stain (WS), color aberration (CA), surface shedding (SS), and excessive gap (EG) |  
+| Annotation Type | Bounding Boxes + Pixel-level Masks (COCO format) |  
+| File Format     | JPEG for images, JSON (COCO) for annotations     |  
+| License         | CC BY-NC-SA 4.0                                  |  
 
 ---
 
-## 🧪 Benchmarking & Baselines
+## 📁 Dataset Structure  
 
-We benchmark multiple models under two paradigms:
-
-| Paradigm                       | Models Included                      |
-| ------------------------------ | ------------------------------------ |
-| One-stage-segmentation         | ConvNeXT V2 Mask R-CNN, ResNet Mask R-CNN, Mask2Former, Co-DETR , YOLOv8, YOLOv9, YOLOv10, YOLOv11 |
-| Detection-then-Segmentation    | ConvNeXT V2+SAM, YOLOv11+SAM, DEIM+SAM, Co-DETR+SAM |
-
-Performance is evaluated on:
-* **mAP** for instance segmentation quality
-* **IoU** for semantic segmentation quality
-* **FPS** for efficiency
----
-
-## 🚀 Getting Started
-
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/A2BDefects.git
-cd A2BDefects
-
-```
+```  
+WZ/  
+├── annotations/  
+│   ├── instances_train.json     # Training set annotations  
+│   ├── instances_val.json       # Validation set annotations  
+│   └── instances_test.json      # Test set annotations  
+├── train/                       # 512×512 training images  
+├── val/                         # Validation images  
+└── test/                        # Test images  
+```  
 
 ---
 
-<!-- ## 📚 Citation
+## 📊 Annotation Format  
 
-If you use **A2BDefects** in your research, please cite it as follows:
+Each annotation includes:  
 
-```bibtex
-@dataset{a2bdefects2025,
-  title     = {A2BDefects: A High-Resolution Dataset for Internal Structural Defect Analysis in Ancient Brick Architecture},
-  author    = {Your Name and Collaborators},
-  year      = {2025},
-  url       = {https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/IGUS04},
-  license   = {CC BY-NC-SA 4.0}
-}
-```
+```json  
+{  
+  "id": 2023,  
+  "image_id": 105,  
+  "category_id": 4,  
+  "segmentation": [x1, y1, x2, y2, ...],  
+  "bbox": [x, y, width, height],  
+  "area": 3450.5,  
+  "iscrowd": 0  
+}  
+```  
 
---- -->
+---
 
-<!-- ## 🤝 Contributing
+## 🧪 Benchmarking & Baselines  
 
-We welcome collaboration! Please open an issue or pull request to suggest improvements or report bugs.
+We benchmark multiple models under two paradigms:  
 
---- -->
+| Paradigm                       | Models Included                      |  
+| ------------------------------ | ------------------------------------ |  
+| One-stage-segmentation         | ConvNeXT V2 Mask R-CNN, ResNet Mask R-CNN, Mask2Former, Co-DETR , YOLOv8, YOLOv9, YOLOv10, YOLOv11 |  
+| Detection-then-Segmentation    | ConvNeXT V2+SAM, YOLOv11+SAM, DEIM+SAM, Co-DETR+SAM |  
 
-## 📬 Contact
+Performance is evaluated on:  
+* **mAP** for instance segmentation quality  
+* **IoU** for semantic segmentation quality  
+* **FPS** for efficiency  
 
-For questions or collaboration requests:
+---
 
-📧 [your.email@example.com](mailto:your.email@example.com)
-🏛️ Department of Architecture & Heritage Engineering, \[Your Institution]
+## 🚀 Getting Started  
+
+```bash  
+# Clone the repository  
+git clone https://github.com/yourusername/A2BDefects.git  
+cd A2BDefects  
+```  
+
+---
+## 📚 Related Resources  
+We recommend exploring these repositories for extended research:  
+
+| Resource | Description |  
+|----------|-------------|  
+| **[COCO Dataset](https://github.com/cocodataset/cocoapi)** | Annotation format reference and evaluation tools |  
+| **[MMDetection](https://github.com/open-mmlab/mmdetection)** | OpenMMLab's detection toolbox used for baseline implementations |  
+| **[Segment Anything](https://github.com/facebookresearch/segment-anything)** | Foundation model for segmentation tasks (used in detection-then-segmentation pipelines) |
+| **[DEIM](https://github.com/ShihuaHuang95/DEIM)** ∙ Dynamic Edge Inference Module for segmentation refinement  |
+|**[Co-DETR](https://github.com/Sense-X/Co-DETR)** ∙ Collaborative hybrid transformer architecture for detection tasks  |
+|**[YOLO](https://github.com/ultralytics/ultralytics)** ∙ Real-time object detection (v8, v9, v10, v11 implementations)  |
+
+
+---
+## 📬 Contact  
+
+For questions or collaboration requests:  
+
+📧 **[20245227072@stu.suda.edu.cn](mailto:20245227072@stu.suda.edu.cn)**  
+🏛️ **School of Computer Science and Technology, Soochow University**  
+
+---
