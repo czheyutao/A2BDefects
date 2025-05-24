@@ -1,13 +1,13 @@
 export CUDA_VISIBLE_DEVICES=5  # 限制只使用第5个GPU（编号为4）
 
 # 定义训练参数
-DATA_ROOT="/data/hyt/mmdetection/WZ"
+DATA_ROOT="./WZ"
 MODEL_TYPE="vit_b"
-CHECKPOINT_PATH="./wz_b/sam_vit_b.pth"
-OUTPUT_DIR="./wz_b"
+CHECKPOINT_PATH="./SAM/wz_b/sam_vit_b.pth"
+OUTPUT_DIR="./SAM/wz_b"
 
 # 运行训练脚本
-python /data/hyt/SAM/finetune.py \
+python ./SAM/finetune.py \
     --data_root $DATA_ROOT \
     --model_type $MODEL_TYPE \
     --checkpoint_path $CHECKPOINT_PATH \

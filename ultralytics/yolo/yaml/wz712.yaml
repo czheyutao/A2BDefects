@@ -1,0 +1,25 @@
+# Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]
+path: ./ # dataset root dir
+train: [wz_yolo/train]
+val: [wz_yolo/val]
+test: [wz_yolo/test]
+# train: [data_1-4/train,data_5-6/train] # train images (relative to 'path') 128 images
+# val: [data_1-4/val,data_5-6/val] # val images (relative to 'path') 128 images
+# test: [data_1-4/val,data_5-6/val] # test images (optional)
+
+# Classes
+
+#names:
+#  0: "色差"
+#  1: "表面剥落"
+#  2: "过大缝隙"
+#  3: "水渍"
+
+names:
+  0: "CA"
+  1: "SS"
+  2: "EG"
+  3: "WS"
+
+# Download script/URL (optional)
+# download: https://ultralytics.com/assets/coco128-seg.zip

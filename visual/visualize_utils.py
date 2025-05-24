@@ -66,9 +66,8 @@ def nms(boxes, scores, labels, iou_threshold=0.5):
         class_boxes = boxes[class_indices]
         class_scores = scores[class_indices]
         
-        # 修改排序依据：按边界框面积从大到小排序（原先是按分数排序）
-        areas = (class_boxes[:,2] - class_boxes[:,0]) * (class_boxes[:,3] - class_boxes[:,1])
-        sorted_idx = np.argsort(areas)[::-1]  # 改为按面积降序排列
+        # 恢复按置信度分数降序排序（原按面积排序）
+        sorted_idx = np.argsort(class_scores)[::-1]  # 直接按分数降序排列
         sorted_boxes = class_boxes[sorted_idx]
         sorted_indices = class_indices[sorted_idx]
         
@@ -98,7 +97,9 @@ def visualize_results(
     output_path: str,
     axis_off: bool = True,
     dpi: int = 600,
-    show_box_label: bool = True,
+    show_box_label: bool = False,
+    show_mask_label: bool = False,
+    nms_label: bool = False,
 ) -> None:
     """
     可视化SAM预测结果并保存，输出图像尺寸与原始图像一致
@@ -149,7 +150,7 @@ def visualize_results(
         )
         
 
-    def add_label_to_box(box, ax, color,label, class_id):
+    def add_label_to_box(box, ax, color, label, class_id):
         """
         在边界框上添加标签
         参数:
@@ -195,20 +196,29 @@ def visualize_results(
     plt.figure(figsize=figsize)
     plt.imshow(image)
 
-    # 执行NMS预处理
-    if len(boxes) > 0:
-        boxes_np = np.array(boxes)
-        scores_np = np.array(scores)
-        labels_np = np.array(labels)
-        
-        keep_indices = nms(boxes_np, scores_np, labels_np, 0.5)
-        
-        # 过滤保留的检测项
-        masks = [masks[i] for i in keep_indices]
-        boxes = [boxes[i] for i in keep_indices]
-        scores = [scores[i] for i in keep_indices]
-        labels = [labels[i] for i in keep_indices]
-    
+    if nms_label:
+        # 将masks, boxes, labels, scores按scores降序排列
+        sorted_zip = sorted(zip(scores, masks, boxes, labels), key=lambda x: x[0], reverse=True)
+        scores, masks, boxes, labels = zip(*sorted_zip)
+        # 转换为列表保持原有类型
+        scores = list(scores)[:30]
+        masks = list(masks)[:30]
+        boxes = list(boxes)[:30]
+        labels = list(labels)[:30]
+
+        # 执行NMS预处理
+        if len(boxes) > 0:
+            boxes_np = np.array(boxes)
+            scores_np = np.array(scores)
+            labels_np = np.array(labels)
+            keep_indices = nms(boxes_np, scores_np, labels_np, 0.3)
+            
+            # 过滤保留的检测项
+            masks = [masks[i] for i in keep_indices]
+            boxes = [boxes[i] for i in keep_indices]
+            scores = [scores[i] for i in keep_indices]
+            labels = [labels[i] for i in keep_indices]
+
     # 获取颜色，共4种颜色, 存放在colors中
     colors = [
         np.array([30 / 255, 144 / 255, 255 / 255, 0.3]),  # 蓝色
@@ -216,35 +226,21 @@ def visualize_results(
         np.array([255 / 255, 255 / 255, 51 / 255, 0.3]),   # 明黄色
         np.array([50 / 255, 205 / 255, 50 / 255, 0.3]),    # 翠绿色
     ]
-    # colors = [
-    #     np.array([255 / 255, 50 / 255, 50 / 255, 0.7]),    # 亮红色
-    #     np.array([255 / 255, 255 / 255, 51 / 255, 0.7]),   # 明黄色
-    #     np.array([50 / 255, 205 / 255, 50 / 255, 0.7]),    # 翠绿色
-    #     np.array([30 / 255, 144 / 255, 255 / 255, 0.7]), # 蓝色
-    # ]
 
     # 批量绘制mask和box
     for mask, box, score, label in zip(masks, boxes, scores, labels):
-        # 只画置信度大于0.2的mask
-        if score < 0.2:
-            continue
-
-        # if label == 1:
-        #     continue
-
-        # 同种label使用同种颜色
         class_id = label      
         mask_color = colors[class_id-1]
         border_color = mask_color.copy()
         border_color[3] = 1.0
         labels = ["CA","SS","EG","WS"] 
-        # labels= ["crack-brick","brick","broken_brick","crack"]
         label = labels[class_id-1]
         
-        show_mask(mask, plt.gca(), mask_color)
-        # if show_box_label:
-        #     show_box(box, plt.gca(), border_color, label, class_id)  # 新增class_id参数
-        #     add_label_to_box(box, plt.gca(), border_color, label, class_id)
+        if show_mask_label:
+            show_mask(mask, plt.gca(), mask_color)
+        if show_box_label:
+            show_box(box, plt.gca(), border_color, label, class_id)  # 新增class_id参数
+            add_label_to_box(box, plt.gca(), border_color, label, class_id)
 
     if axis_off:
         plt.axis("off")

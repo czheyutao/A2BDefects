@@ -12,7 +12,6 @@ from PIL import Image, ImageDraw
 import sys
 import os
 import cv2  # Added for video processing
-import json
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
 from engine.core import YAMLConfig
@@ -21,7 +20,7 @@ from engine.core import YAMLConfig
 def draw(images, labels, boxes, scores, thrh=0.4):
     for i, im in enumerate(images):
         draw = ImageDraw.Draw(im)
-
+ 
         scr = scores[i]
         lab = labels[i][scr > thrh] 
         box = boxes[i][scr > thrh]
@@ -155,9 +154,8 @@ def main(args):
         # 调用process_image处理图像
         process_image(model, device, image_path, annotations[0], all_coco_annotations)
 
-    # 保存所有图像的CO`CO注释到一个JSON文件中
+    # 保存所有图像的COCO注释到一个JSON文件中
     save_to_coco_json(all_coco_annotations, 'torch_results_coco.json')
-
     print("All images processed and results saved in a single JSON file.")
 
 
