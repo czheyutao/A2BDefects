@@ -18,8 +18,8 @@ Existing datasets often emphasize external surface materials with coarse annotat
 
 In collaboration with domain experts, we collected high-resolution images from diverse architectural ensembles under various environmental conditions. The dataset features multi-level annotations, including:
 
-* Object-level bounding boxes  
-* Pixel-level segmentation masks  
+* **Object-level** bounding boxes  
+* **Pixel-level** segmentation masks  
 
 We establish robust baselines using two complementary visual instance segmentation paradigms:  
 
@@ -41,7 +41,7 @@ These insights demonstrate the value of **A2BDefects** in driving forward intell
 | Feature         | Specification                                    |  
 | --------------- | ------------------------------------------------ |  
 | Name            | A2BDefects (Ancient-to-Brick Defects)            |  
-| Resolution      | 512×512 pixels                                   |  
+| Resolution      | **512×512** pixels                                   |  
 | Annotations     | **26,162** instances with multi-class labeling   |  
 | Defect Types    | water stain (WS), color aberration (CA), surface shedding (SS), and excessive gap (EG) |  
 | Annotation Type | Bounding Boxes + Pixel-level Masks (COCO format) |  
@@ -108,8 +108,8 @@ cd A2BDefects
 ```  
 
 ---
-## 📚 Related Resources  
-We recommend exploring these repositories for extended research:  
+## 📚 Reference
+Our work is built upon the following resources:
 
 | Resource | Description |  
 |----------|-------------|  
