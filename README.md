@@ -1,7 +1,3 @@
-Here’s the revised **English version** of the README with your requested updates (highlighted in **bold**):
-
----
-
 # A2BDefects: Dataset and Benchmark for Ancient Architecture Preservation [![CC-BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](LICENSE)
 
 **A High-Resolution Dataset for Internal Structural Defect Analysis in Ancient Brick Architecture**
