@@ -2,7 +2,8 @@
 
 **A High-Resolution Dataset for Internal Structural Defect Analysis in Ancient Brick Architecture**
 
-![Dataset Samples](samples.png)
+![Dataset Samples](./samples/fig1.png)
+![Dataset Samples](./samples/fig2.png)
 
 🔗 **Dataset URL**: [https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/IGUS04](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/IGUS04)
 
@@ -39,7 +40,7 @@ These insights demonstrate the value of **A2BDefects** in driving forward intell
 | Feature         | Specification                                    |
 | --------------- | ------------------------------------------------ |
 | Name            | A2BDefects (Ancient-to-Brick Defects)            |
-| Resolution      | 512×512 pixels                       |
+| Resolution      | 512×512 pixels                                   |
 | Annotations     | 15,678 instances with multi-class labeling       |
 | Defect Types    | water stain (WS), color aberration (CA), surface shedding (SS), and excessive gap (EG)           |
 | Annotation Type | Bounding Boxes + Pixel-level Masks (COCO format) |
@@ -71,8 +72,8 @@ Each annotation includes:
 {
   "id": 2023,
   "image_id": 105,
-  "category_id": 2,  // water stain (WS), color aberration (CA), surface shedding (SS), and excessive gap (EG)
-  "segmentation": [...],
+  "category_id": 4,
+  "segmentation": [x1, y1, x2, y2, ...],
   "bbox": [x, y, width, height],
   "area": 3450.5,
   "iscrowd": 0
@@ -87,7 +88,7 @@ We benchmark multiple models under two paradigms:
 
 | Paradigm                       | Models Included                      |
 | ------------------------------ | ------------------------------------ |
-| Unified Detection-Segmentation | ConvNeXTv2 Mask R-CNN, ResNet Mask R-CNN, Mask2Former, Co-DETR , YOLOv8-YOLOv11              |
+| One-stage-segmentation         | ConvNeXT V2 Mask R-CNN, ResNet Mask R-CNN, Mask2Former, Co-DETR , YOLOv8, YOLOv9, YOLOv10, YOLOv11 |
 | Detection-then-Segmentation    | ConvNeXT V2+SAM, YOLOv11+SAM, DEIM+SAM, Co-DETR+SAM |
 
 Performance is evaluated on:
@@ -103,12 +104,6 @@ Performance is evaluated on:
 git clone https://github.com/yourusername/A2BDefects.git
 cd A2BDefects
 
-# (Optional) Create environment
-python -m venv venv
-source venv/bin/activate  # or venv\Scripts\activate
-
-# Install requirements (if provided)
-pip install -r requirements.txt
 ```
 
 ---
