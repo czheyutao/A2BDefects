@@ -116,9 +116,9 @@ We recommend exploring these repositories for extended research:
 | **[COCO Dataset](https://github.com/cocodataset/cocoapi)** | Annotation format reference and evaluation tools |  
 | **[MMDetection](https://github.com/open-mmlab/mmdetection)** | OpenMMLab's detection toolbox used for baseline implementations |  
 | **[Segment Anything](https://github.com/facebookresearch/segment-anything)** | Foundation model for segmentation tasks (used in detection-then-segmentation pipelines) |
-| **[DEIM](https://github.com/ShihuaHuang95/DEIM)** ∙ Dynamic Edge Inference Module for segmentation refinement  |
-|**[Co-DETR](https://github.com/Sense-X/Co-DETR)** ∙ Collaborative hybrid transformer architecture for detection tasks  |
-|**[YOLO](https://github.com/ultralytics/ultralytics)** ∙ Real-time object detection (v8, v9, v10, v11 implementations)  |
+| **[DEIM](https://github.com/ShihuaHuang95/DEIM)** | Dynamic Edge Inference Module for segmentation refinement  |
+|**[Co-DETR](https://github.com/Sense-X/Co-DETR)** | Collaborative hybrid transformer architecture for detection tasks  |
+|**[YOLO](https://github.com/ultralytics/ultralytics)** | Real-time object detection (v8, v9, v10, v11 implementations)  |
 
 
 ---
