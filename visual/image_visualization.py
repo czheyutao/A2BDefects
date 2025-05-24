@@ -1,11 +1,9 @@
 import os
 import cv2
-import numpy as np
 from pycocotools.coco import COCO
 from visualize_utils import visualize_results
 import json
 import matplotlib.pyplot as plt
-from tqdm import tqdm
 
 def visualize_single_image(
     coco, img_id, save_dir, model_name, show_box_label=False, show_mask_label=False, nms_label=False

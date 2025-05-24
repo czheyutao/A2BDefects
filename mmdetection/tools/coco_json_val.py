@@ -7,7 +7,8 @@ import os
 # 模型名称
 model_names = ["maskrcnn", "mask2former", "convnext100", "codino100"]  # 这里可以替换为你的模型名称
 for model_name in model_names:
-    types = [""]
+    types = ["_easy", "_hard", ""]
+    eval_type = "segm"
     for type in types:
         # 保存到 CSV 文件
         os.makedirs('/data/hyt/SAM/results', exist_ok=True)
@@ -52,7 +53,7 @@ for model_name in model_names:
         # +++ 过滤结束 +++
 
         # 初始化 COCOeval 用于分割评估
-        coco_eval = COCOeval(coco_gt, coco_dt, "segm")
+        coco_eval = COCOeval(coco_gt, coco_dt, eval_type)
 
         # 获取类别ID和名称的映射
         cat_ids = coco_gt.getCatIds()
@@ -125,6 +126,3 @@ for model_name in model_names:
         pd.set_option('display.width', 1000)  # 调整打印宽度
         pd.set_option('display.max_columns', None)  # 显示所有列
         print(f"Results saved to {output_path}")
-        # 仅打印小、中、大的AP
-        print(df)
-        print(df[['Category','AP@0.5:0.95','AP-Small', 'AP-Medium', 'AP-Large']])

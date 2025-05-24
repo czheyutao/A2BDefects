@@ -7,11 +7,11 @@ import json
 model_names = ["convnext_sam", "codino_sam", "yolo11_sam", "deim_sam"]
 for model_name in model_names:
     # 定义评估类型
-    types = [""]
-
+    types = ["_easy", "_hard"]
+    eval_type = "segm"
     for type in types:
         # 保存到 CSV 文件
-        output_path = f"/data/hyt/SAM/box_results/test_{model_name}{type}.csv"
+        output_path = f"/data/hyt/SAM/segm_results/test_{model_name}{type}.csv"
 
         # 定义路径（根据你的实际路径调整）
         image_dir = "/data/hyt/mmdetection/WZ/test"  # Image directory
@@ -47,7 +47,7 @@ for model_name in model_names:
         # +++ 过滤结束 +++
 
         # 初始化 COCOeval 用于分割评估
-        coco_eval = COCOeval(coco_gt, coco_dt, "bbox")
+        coco_eval = COCOeval(coco_gt, coco_dt, eval_type)
         # 获取类别ID和名称的映射
         cat_ids = coco_gt.getCatIds()
         cats = coco_gt.loadCats(cat_ids)
@@ -120,4 +120,3 @@ for model_name in model_names:
         pd.set_option('display.max_columns', None)  # 显示所有列
         # print(f"Results saved to {output_path}")
         # print(df)
-        print(df[['Category','AP@0.5:0.95','AP-Small', 'AP-Medium', 'AP-Large']])
