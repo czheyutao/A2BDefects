@@ -1,4 +1,4 @@
-# A2BDefects: Dataset and Benchmark for Ancient Architecture Preservation [![CC-BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](LICENSE)
+# A2BDefects: Dataset and Benchmark for Ancient Architecture Preservation [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 **A High-Resolution Dataset for Internal Structural Defect Analysis in Ancient Brick Architecture**
 
